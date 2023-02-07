@@ -1,5 +1,7 @@
 package com.gtsoft.works.test.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +23,10 @@ public class TestController {
 	
 	@RequestMapping("/")
 	public String test(@ModelAttribute("params") TestDTO params, Model model ) {
-		
-		model.addAllAttributes(testService.selectGtUser(params));
+
+		HashMap<String, Object> resultMap = testService.selectGtUser(params);
+				
+		model.addAllAttributes(resultMap);
 		
 		return "contents/index";
 	}

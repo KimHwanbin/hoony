@@ -20,11 +20,11 @@ public class TestService {
 	@Autowired
 	TestRepository testRepository;
 
-	public HashMap<String, Object> selectGtUser() {
+	public HashMap<String, Object> selectGtUser(TestDTO params) {
 		
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		
-		List<TestDTO> userList = testRepository.selectGtUser();
+		List<TestDTO> userList = testRepository.selectGtUser(params);
 		
 		log.info("userList >>> " + userList);
 		

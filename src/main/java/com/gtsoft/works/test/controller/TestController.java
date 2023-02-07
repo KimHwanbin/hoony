@@ -20,10 +20,9 @@ public class TestController {
 	TestService testService;
 	
 	@RequestMapping("/")
-	public String test(@ModelAttribute("params") TestDTO testDto, Model model ) {
+	public String test(@ModelAttribute("params") TestDTO params, Model model ) {
 		
-		
-		model.addAllAttributes(testService.selectGtUser());
+		model.addAllAttributes(testService.selectGtUser(params));
 		
 		return "contents/index";
 	}

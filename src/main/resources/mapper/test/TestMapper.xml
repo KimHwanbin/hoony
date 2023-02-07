@@ -3,9 +3,17 @@
 
 <mapper namespace="com.gtsoft.works.test.repository.TestRepository">
 
-	<select id="selectGtUser" resultType="com.gtsoft.works.test.dto.TestDTO">
-		SELECT	*
+	<select id="selectGtUser" parameterType="hashMap" resultType="TestDTO">
+		SELECT	USER_ID
+				, USER_NM
+				, USER_HP
+				, USER_DEPT
+				, USER_PW
 		FROM	study_db.GT_USER
+		WHERE	1=1
+		<if test='userId != null and !"".equals(userId)'>
+		AND 	USER_ID = #{userId}
+		</if>
 	</select>
 
 </mapper>

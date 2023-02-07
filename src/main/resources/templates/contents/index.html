@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>테스트</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  </head>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
 
-  <body>
-  	<table>
-  		<tr th:each="item: ${userList}">
-  			<td>[[${item.userId}]]</td>
-  			<td>[[${item.userNm}]]</td>
-  			<td>[[${item.userHp}]]</td>
-  			<td>[[${item.userDept}]]</td>
-  		</tr>
-  	</table>
-  </body>
+	<div layout:fragment="content">
+		<table>
+	  		<tr th:each="item: ${userList}">
+	  			<td>[[${item.userId}]]</td>
+	  			<td>[[${item.userNm}]]</td>
+	  			<td>[[${item.userHp}]]</td>
+	  			<td>[[${item.userDept}]]</td>
+	  		</tr>
+	  	</table>
+    </div>  	
 </html>

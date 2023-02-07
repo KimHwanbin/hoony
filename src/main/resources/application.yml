@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  thymeleaf:
+    cache: false
+
+---
+spring:
+  profiles:
+    active:
+    - local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:33306/study_db?serverTimezone=Asia/Seoul
+    username: gtsoft
+    password: gtsoft1!@
+logging:
+  config: classpath:logback/logback-local.xml
+  level:
+    root: info
+---
+spring:
+  thymeleaf:
+    cache: true
+  profiles:
+    active:
+    - dev
